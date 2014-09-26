@@ -232,13 +232,13 @@ class Exceller {
    */
   public function getLetter($cnt) {
 
-    $repeat = (int) ($cnt / count($this->letters));
-    $module = (int) (($cnt) % count($this->letters));
+    $repeat = (int) ($cnt / count($this->_letters));
+    $module = (int) (($cnt) % count($this->_letters));
 
     if ($repeat > 0) {
-      return $this->letters[$repeat - 1] . $this->letters[$module];
+      return $this->_letters[$repeat - 1] . $this->_letters[$module];
     } else {
-      return $this->letters[$module];
+      return $this->_letters[$module];
     }
   }
 
