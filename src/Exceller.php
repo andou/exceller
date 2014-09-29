@@ -96,6 +96,19 @@ class Exceller {
     return $this;
   }
 
+  public function setAutosizeRange($range_start, $range_end) {
+    foreach (range($range_start, $range_end) as $columnID) {
+      $this->setAutosize($columnID);
+    }
+    return $this;
+  }
+
+  public function setAutosize($column) {
+    $this->_objExcel->getActiveSheet()->getColumnDimension($column)
+            ->setAutoSize(true);
+    return $this;
+  }
+
   public function setActiveSheetTitle($active_sheet_title) {
     $this->_active_sheet_title = $active_sheet_title;
     return $this;
