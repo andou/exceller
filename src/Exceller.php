@@ -63,7 +63,7 @@ class Exceller {
   }
 
   public function finalize() {
-    $this->_saveExcel();
+    return $this->_saveExcel();
   }
 
   public function setType($type) {
@@ -149,7 +149,9 @@ class Exceller {
         break;
     }
 
-    $objWriter->save($this->_composeSavePath());
+    $save_path = $this->_composeSavePath();
+    $objWriter->save($save_path);
+    return $save_path;
   }
 
   protected function _composeSavePath() {
